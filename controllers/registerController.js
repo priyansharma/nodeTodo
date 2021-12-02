@@ -1,4 +1,4 @@
-const userMdoal = require("../../modal/user")
+const userMdoal = require("../modal/user")
 const userRegister = async (req, res) => {
     try{
         const {password, confirmpassword, firstname, lastname, email, phonenumber} = req.body

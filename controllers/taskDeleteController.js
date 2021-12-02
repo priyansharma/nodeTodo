@@ -1,4 +1,4 @@
-const taskModal = require("../../modal/userData")
+const taskModal = require("../modal/userData")
 
 const deleteController = async (req, res) => {
     try{

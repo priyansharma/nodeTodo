@@ -2,12 +2,12 @@ const express = require("express")
 const router = new express.Router()
 const bodyParser = require('body-parser')
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
-const registerController = require('../api/controllers/registerController')
-const loginController = require('../api/controllers/loginController')
-const makeTodos = require('../api/controllers/makeTodoController')
-const authentication = require('../api/middleware/authentication')
-const getUserDataController = require("../api/controllers/getUserDataController")
-const taskDeleteController = require("../api/controllers/taskDeleteController")
+const registerController = require('../controllers/registerController')
+const loginController = require('../controllers/loginController')
+const makeTodos = require('../controllers/makeTodoController')
+const authentication = require('../middleware/authentication')
+const getUserDataController = require("../controllers/getUserDataController")
+const taskDeleteController = require("../controllers/taskDeleteController")
 
 router.get("/", (req, res) => {
     res.render("login/login", {

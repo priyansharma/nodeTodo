@@ -1,4 +1,4 @@
-const registerModal = require("../../modal/user")
+const registerModal = require("../modal/user")
 const bcrypt = require("bcrypt")
 const loginController = async  (req, res) => {
     try{

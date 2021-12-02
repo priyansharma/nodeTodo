@@ -1,4 +1,4 @@
-const userTodo = require("../../modal/userData")
+const userTodo = require("../modal/userData")
 
 const makeTodo = async (req, res) => {
   try{

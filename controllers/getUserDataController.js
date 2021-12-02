@@ -1,4 +1,4 @@
-const userDataModel = require("../../modal/userData")
+const userDataModel = require("../modal/userData")
 
 const getData = async (req, res) => {
     try{

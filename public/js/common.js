@@ -1,6 +1,7 @@
+const BASE_URL = "http://localhost:3000"
 getUserData = () => {
     try{
-        fetch('http://localhost:3000/getdata')
+        fetch(`${BASE_URL}/getdata`)
         .then(function(response){
             return response.json()
         }).then(data => {
@@ -26,7 +27,40 @@ getUserData = () => {
 }
 
 deleteHandler = (taskId) => {
-    console.log("taskId", taskId)
+    try{
+        let requestBody = {
+            "taskId": taskId
+        }
+        fetch(`${BASE_URL}/taskdelete`, {
+            method: 'DELETE',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify(requestBody)
+        }).then(reponse => {
+            return reponse.json()
+        }).then(result => {
+            if(result.code !== 1){
+                console.log(result)
+                alert("Somethind went worng in delete item")
+                return
+            }
+            window.location.reload()
+        }).catch(error => {
+            console.log(error)
+            alert("Somethind went worng in delete item")
+        })
+    } catch(error){
+        console.log(error)
+    }
 }
 
+logoutHandler = () => {
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var getCookieValue = cookie.indexOf("=");
+        var name = getCookieValue > -1 ? cookie.substr(0, getCookieValue) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 2020 00:00:00 GMT";
+    }
+    window.location.href = BASE_URL
+}
 window.onload = getUserData()

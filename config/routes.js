@@ -27,7 +27,7 @@ router.post("/login", urlencodedParser, loginController)
 router.post("/register", urlencodedParser, registerController)
 router.post("/create", urlencodedParser, authentication, makeTodos)
 router.get("/getdata", urlencodedParser, getUserDataController)
-router.get("/taskdelete", urlencodedParser, taskDeleteController)
+router.delete("/taskdelete", authentication, taskDeleteController)
 
 router.get("*", (req, res) => {
     res.render("404/404")

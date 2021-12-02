@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const bcrypt = require("bcrypt")
 const JSONToken = require("jsonwebtoken")
-const SECRET_KEY = "eyJhbGciOiJIUzI1NiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLC"
+const SECRET_KEY = process.env.SECRET_KEY
 
 const registerSchema = new mongoose.Schema({
     userId:{
@@ -41,7 +41,7 @@ const registerSchema = new mongoose.Schema({
 // Middleware for genrate JWT token
 registerSchema.methods.genrateJwtToken = async function(){
     try{
-        let makeToken = await JSONToken.sign({_id:this._id}, SECRET_KEY)
+        let makeToken = await JSONToken.sign({_id: this._id}, SECRET_KEY)
         return makeToken
     }catch(error){
         console.log(`Error of genrate token ${error}`)

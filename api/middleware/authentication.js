@@ -1,11 +1,11 @@
 const JWT = require("jsonwebtoken")
-const SECRET_KEY = "eyJhbGciOiJIUzI1NiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLC"
+const SECRET_KEY = process.env.SECRET_KEY
 
 const authCreateTask = async (req, res, next) => {
     try{
         const isVerfiy = await JWT.verify(req.cookies.JWT, SECRET_KEY)
         if(!isVerfiy){
-            res.render("../views/login/login")
+            res.redirect(`${process.env.BASE_URL}/`)
             return
         }
     }catch(error){

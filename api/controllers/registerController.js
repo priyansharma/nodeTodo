@@ -17,7 +17,7 @@ const userRegister = async (req, res) => {
             userId: userId + 1 
         })
         await userRegister.save()
-        res.status(200).render("../views/accontCreated/accountCreated")
+        res.status(200).redirect(`${process.env.BASE_URL}/account-created`)
     } catch(error){
         console.log(error);
         if(error.keyPattern.phonenumber){

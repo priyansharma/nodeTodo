@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-
-mongoose.connect("mongodb://localhost:27017/todoApp", {
+require('dotenv').config()
+mongoose.connect(`mongodb://${process.env.DB_DOMAIN}:${process.env.DB_PORT}/todoApp`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })

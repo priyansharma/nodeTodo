@@ -7,7 +7,7 @@ const loginController = async  (req, res) => {
             let matchPassword = await bcrypt.compare(req.body.password, getAccount.password)
             if(matchPassword){
                 const getToken = await getAccount.genrateJwtToken()
-                res.status(200).cookie('JWT', getToken, {secure: true}).cookie('ID', getAccount.userId).render("../views/dashboard/dashboard")
+                res.status(200).cookie('JWT', getToken, {secure: true}).cookie('ID', getAccount.userId).redirect(`${process.env.BASE_URL}/dashboard`)
             }else{
                 res.status(400).send("<h1>Your password dose't match</h1>")
             }

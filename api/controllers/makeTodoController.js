@@ -28,7 +28,7 @@ const makeTodo = async (req, res) => {
         })
         await saveUserTask.save()
     }
-    res.status(200).render("../views/dashboard/dashboard")
+    res.status(200).redirect(`${process.env.BASE_URL}/dashboard`)
   }catch(error){
     console.log(error);
     res.send(`<h1>something went wrong</h1>`)

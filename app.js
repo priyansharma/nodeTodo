@@ -12,5 +12,5 @@ app.use(express.static(__dirname + '/public'));
 app.use(routes)
 
 app.listen(process.env.PORT || PORT, (req, res) => {
-    console.log(`This application run on port number port ${PORT}`)
+    console.log(`This application run on port number port 5000`)
 })

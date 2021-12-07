@@ -4,7 +4,7 @@ require('./config/connection')
 require('dotenv').config()
 const routes = require("./config/routes")
 const cookieParser = require("cookie-parser")
-const PORT = process.env.EXPRESS_PORT
+const PORT = process.env.PORT || 3000
 
 app.use(express.json());
 app.set('view engine', 'hbs');

@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = "http://todoapp-priyansh.herokuapp.com"
 getUserData = () => {
     try{
         fetch(`${BASE_URL}/getdata`)

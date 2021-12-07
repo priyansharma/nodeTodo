@@ -1,4 +1,4 @@
-const BASE_URL = "http://todoapp-priyansh.herokuapp.com"
+const BASE_URL = "https://todoappp-priyansh.herokuapp.com"
 getUserData = () => {
     try{
         fetch(`${BASE_URL}/getdata`)
